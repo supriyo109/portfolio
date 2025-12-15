@@ -9,9 +9,8 @@ body {
   font-family: 'Arial', sans-serif;
   line-height: 1.6;
   background: linear-gradient(135deg, #333, #000);
-
-  /* background: #121212; Dark background */
-  color: #e0e0e0; /* Light text */
+  /* background: linear-gradient(135deg, #afbbee, #e5caca, #d6d7f3); */
+  color: #e0e0e0;
   margin-top: 50px;
   scroll-behavior: smooth;
 }
@@ -20,9 +19,34 @@ a {
   text-decoration: none;
 }
 
-nav a.active {
-  border-bottom: 3px solid #007bff;
+
+.nav-link {
+  position: relative;
+  padding: 10px 15px 0 15px;
+  color: #000 !important;
+  text-decoration: none;
 }
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background: #00eaff;
+  transition: width 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link.active::after {
+  width: 70%;
+}
+
+.navbar-nav {
+  gap: 10px;
+}
+
 section {
   height: 100vh;
 }
@@ -60,7 +84,7 @@ header.home .container {
   justify-content: space-between; 
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  /* padding: 0 20px; */
   flex-wrap: wrap; 
 }
 
@@ -73,7 +97,7 @@ header.home img {
   width: 100%;
   margin-left: auto;
   border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  box-shadow: 0 10px 30px rgba(255,255,255,0.9);
 } 
 
 header.home .container div:last-child {
@@ -87,9 +111,7 @@ header.home .container div:last-child {
   font-size: 30px;
   text-wrap: nowrap;
   overflow: hidden;
-  color:   #f0bf64;
-
-
+  color:   #0936ea;
   animation: typing 3s steps(20) infinite alternate-reverse;
 }  
 
@@ -108,7 +130,7 @@ header.home .container div:last-child {
 }
 
 
-.about h2 {
+.heading {
   text-align: center;
   font-size: 2.5rem;
   font-weight: bold;
@@ -116,7 +138,7 @@ header.home .container div:last-child {
   position: relative;
 }
 
-.about h2::after {
+.heading::after {
   content: "";
   display: block;
   width: 80px;
@@ -132,6 +154,15 @@ header.home .container div:last-child {
   margin: 0 auto;
   text-align: justify;
   animation: fadeIn 1.2s ease-in-out;
+}
+
+.about a{
+  color: white;
+}
+
+.about a:hover{
+  color: #007bff;
+  text-decoration: underline dotted;
 }
 
 .about strong {
@@ -352,6 +383,12 @@ form button {
   cursor: pointer;
   margin-left: auto;
 }
+
+/* form button:hover{
+  width: 270px;
+  border: 1px solid #320cf3;
+
+} */
 
 form input:focus,
 form textarea:focus {
